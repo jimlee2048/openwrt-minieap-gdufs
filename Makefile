@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=minieap
+PKG_NAME:=minieap-gdufs
 PKG_VERSION:=0.93
 PKG_RELEASE:=5
 PKG_MAINTAINER:=Richard Yu <yurichard3839@gmail.com>
