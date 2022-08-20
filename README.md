@@ -1,6 +1,8 @@
 openwrt-minieap-gdufs
 =====
 
+**⚠已知问题：在某些区域无法通过认证，详见[issue#1](https://github.com/jimlee2002/minieap-gdufs/issues/1)**
+
 基于 [@ysc3839](https://github.com/ysc3839)/**[openwrt-minieap](https://github.com/ysc3839/openwrt-minieap)** 修改
 
 编译方法请参考下方原仓库 README 
