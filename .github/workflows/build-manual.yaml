@@ -1,0 +1,40 @@
+name: Manual Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      arch:
+        description: 'Target architecture'
+        required: true
+        default: x86_64
+
+      sdk_version:
+        description: 'SDK version'
+        required: true
+        default: main
+env:
+  PACKAGE_NAME: minieap-gdufs
+
+jobs:
+  build:
+    name: Build ${{ github.event.inputs.arch }}-${{ github.event.inputs.sdk_version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Building packages
+        uses: openwrt/gh-action-sdk@main
+        env:
+          ARCH: ${{ github.event.inputs.arch }}-${{ github.event.inputs.sdk_version }}
+          FEED_DIR: ${{ github.workspace }}
+          PACKAGES: ${{ env.PACKAGE_NAME }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.event.inputs.arch }}-${{ github.event.inputs.sdk_version }}
+          path: bin/packages/${{ github.event.inputs.arch }}/action/*.ipk
+          retention-days: 7

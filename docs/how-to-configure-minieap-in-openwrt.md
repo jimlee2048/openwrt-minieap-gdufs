@@ -45,11 +45,11 @@
 >如果你使用了 [openwrt-minieap-gdufs](https://github.com/jimlee2002/openwrt-minieap-gdufs)，下面配置中的大部分参数已经设置为默认值了，只需在该界面设置“EAP 广播地址”和“服务名称”两项参数即可。
 
 > **GDUFS** 参考配置：
-> 心跳间隔：`60`
-> EAP 广播地址：` 锐捷私有 `
-> DHCP 方式：` 二次认证 `
-> 服务名称：`default`
-> 版本字符串：`RG-SU For Linux V1.30`
+> - 心跳间隔：`60`
+> - EAP 广播地址：` 锐捷私有 `
+> - DHCP 方式：` 二次认证 `
+> - 服务名称：`default`
+> - 版本字符串：`RG-SU For Linux V1.30`
 
 检查无误后，点击 ` 保存&应用 ` 完成新接口设置。
 
@@ -102,7 +102,7 @@
 
 以 GDUFS 为例：
 
-- GDUFS 的断网时段为工作日（周一至周五）凌晨 01:00 - 05:00
+- GDUFS 的断网时段为非假期工作日（周一至周五）凌晨 01:00 - 05:00
 - 进入断网时段，会自动踢出校园网上设备的认证，同时禁止新设备发起认证
 基于上述需求，这里的示例希望设置软路由在每天的凌晨 05:01 自动重新发起认证（多 1 分钟是为了避免踩点认证因时间不同步导致可能的失败问题）
 
@@ -123,7 +123,7 @@
 
 对于部分没有 IPv6 网络或者是 IPv6 网络无法正常使用的校园网环境，你还需要关闭 OpenWRT 的 IPv6 相关功能，否则会遇到上网问题（如知乎/微博图片无法加载）。
 
-> 对于 **GDFUS**，校园网的 IPv6 当前无法正常使用，更多信息请参见 [Surf in GDUFS](https://github.com/jimlee2002/openwrt-minieap-gdufs/blob/master/docs/surf-in-gdufs.md#关于-IPv6)
+> 对于 **GDUFS**，校园网的 IPv6 当前无法正常使用，更多信息请参见 [Surf in GDUFS](https://github.com/jimlee2002/openwrt-minieap-gdufs/blob/master/docs/surf-in-gdufs.md#关于-IPv6)
 
 要完全关闭 OpenWRT 的 IPv6 功能，请遵循以下操作：
 
@@ -133,4 +133,4 @@
 - Lan 接口设置下的 `dhcp 服务设置 ` -> `ipv6 设置 `：
 	- 全部设为 ` 已禁用 `
 	- 取消勾选 ` 总是通告默认路由 `
-- ` 网络 ` ->`dns/dhcp`- >` 高级设置` -> 禁止解析 IPv6 DNS 记录：Y
+- ` 网络 ` -> `dns/dhcp` -> ` 高级设置` -> 禁止解析 IPv6 DNS 记录：Y
