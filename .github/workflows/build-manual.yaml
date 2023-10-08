@@ -4,14 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       arch:
-        description: 'Target architecture'
+        description: "Target architecture"
         required: true
         default: x86_64
 
       sdk_version:
-        description: 'SDK version'
+        type: choice
+        description: "SDK version"
+        options:
+          - SNAPSHOT
+          - openwrt-23.05
+          - openwrt-22.03
         required: true
-        default: main
+        default: SNAPSHOT
 env:
   PACKAGE_NAME: minieap-gdufs
 
