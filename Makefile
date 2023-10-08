@@ -12,6 +12,7 @@ PKG_SOURCE_URL:=https://github.com/jimlee2002/minieap-gdufs.git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=v$(PKG_VERSION)-gdufs
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+PKG_MIRROR_HASH:=1e4b47ca33af8fbe34a8b584ffcb214a47dfebd6d17ecd1e7f78c4131fcba732
 
 include $(INCLUDE_DIR)/package.mk
 
